@@ -1,0 +1,102 @@
+# Project definitions (do not edit)
+Task: Pupil
+scorer: Sylvia
+date: Apr27
+
+# Project path (change when moving around)
+project_path: C:\STORAGE\OneDrive - University College London\Lab\DLC Pupil\Pupil-Sylvia-2020-04-27
+
+# Annotation data set configuration (and individual video cropping parameters)
+video_sets:
+  J:\EyeData\SS041\2015-08-11\1\2015-08-11_1_SS041_eye.mj2:
+    crop: 0, 311, 0, 221
+  J:\EyeData\SS047\2015-11-10\4\2015-11-10_4_SS047_eye.mj2:
+    crop: 0, 318, 0, 222
+  J:\EyeData\SS047\2015-11-10\5\2015-11-10_5_SS047_eye.mj2:
+    crop: 0, 318, 0, 222
+  J:\EyeData\SS047\2015-11-10\6\2015-11-10_6_SS047_eye.mj2:
+    crop: 0, 318, 0, 222
+  J:\EyeData\SS047\2015-11-11\2\2015-11-11_2_SS047_eye.mj2:
+    crop: 0, 325, 0, 241
+  J:\EyeData\SS047\2015-11-12\1\2015-11-12_1_SS047_eye.mj2:
+    crop: 0, 324, 0, 227
+  J:\EyeData\SS047\2015-11-17\1\2015-11-17_1_SS047_eye.mj2:
+    crop: 0, 354, 0, 269
+  J:\EyeData\SS047\2015-11-18\1\2015-11-18_1_SS047_eye.mj2:
+    crop: 0, 357, 0, 268
+  J:\EyeData\SS047\2015-11-18\2\2015-11-18_2_SS047_eye.mj2:
+    crop: 0, 357, 0, 268
+  J:\EyeData\SS047\2015-11-24\3\2015-11-24_3_SS047_eye.mj2:
+    crop: 0, 351, 0, 280
+  J:\EyeData\SS048\2015-08-20\1\2015-08-20_1_SS048_eye.mj2:
+    crop: 0, 322, 0, 220
+  J:\EyeData\SS048\2015-08-27\1\2015-08-27_1_SS048_eye.mj2:
+    crop: 0, 337, 0, 243
+  J:\EyeData\SS048\2015-09-03\1\2015-09-03_1_SS048_eye.mj2:
+    crop: 0, 320, 0, 254
+  J:\EyeData\SS048\2015-09-16\1\2015-09-16_1_SS048_eye.mj2:
+    crop: 0, 367, 0, 243
+  J:\EyeData\SS048\2015-09-26\1\2015-09-26_1_SS048_eye.mj2:
+    crop: 0, 358, 0, 272
+  J:\EyeData\SS048\2015-09-26\2\2015-09-26_2_SS048_eye.mj2:
+    crop: 0, 358, 0, 272
+  J:\EyeData\SS052\2015-11-24\1\2015-11-24_1_SS052_eye.mj2:
+    crop: 0, 361, 0, 271
+  J:\EyeData\SS052\2015-12-01\1\2015-12-01_1_SS052_eye.mj2:
+    crop: 0, 345, 0, 268
+  J:\EyeData\SS052\2015-12-02\1\2015-12-02_1_SS052_eye.mj2:
+    crop: 0, 336, 0, 282
+  J:\EyeData\SS052\2015-12-02\2\2015-12-02_2_SS052_eye.mj2:
+    crop: 0, 336, 0, 282
+  J:\EyeData\SS052\2015-12-03\1\2015-12-03_1_SS052_eye.mj2:
+    crop: 0, 365, 0, 283
+  J:\EyeData\SS052\2015-12-04\1\2015-12-04_1_SS052_eye.mj2:
+    crop: 0, 366, 0, 298
+  J:\EyeData\SS052\2015-12-15\1\2015-12-15_1_SS052_eye.mj2:
+    crop: 0, 315, 0, 250
+bodyparts:
+- pupil_top
+- pupil_bottom
+- pupil_left
+- pupil_right
+- lid_top
+- lid_bottom
+start: 0
+stop: 1
+numframes2pick: 20
+
+# Plotting configuration
+skeleton:
+- - bodypart1
+  - bodypart2
+- - objectA
+  - bodypart3
+skeleton_color: black
+pcutoff: 0.6
+dotsize: 4
+alphavalue: 0.7
+colormap: jet
+
+# Training,Evaluation and Analysis configuration
+TrainingFraction:
+- 0.95
+iteration: 0
+resnet:
+snapshotindex: 4
+batch_size: 20
+
+# Cropping Parameters (for analysis and outlier frame detection)
+cropping: false
+#if cropping is true for analysis, then set the values here:
+x1: 0
+x2: 640
+y1: 277
+y2: 624
+
+# Refinement configuration (parameters from annotation dataset configuration also relevant in this stage)
+corner2move2:
+- 50
+- 50
+move2corner: true
+default_net_type: resnet_50
+default_augmenter: default
