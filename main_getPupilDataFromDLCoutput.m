@@ -1,16 +1,36 @@
+% This script extracts pupil diameter and position from DLC output.
+% Diameter is defined by the vertical size of the pupil because this is
+% (basically) independent of pupil position, whereas the horizontal size of
+% the pupil measured from the video (distance between left and right edge
+% of pupil) changes when the eye moves.
+% Values of pupil position and diameter are set to NaN when the mouse makes
+% a blink (closes eyes).
+
 %% Folders
-folderData = 'J:\EyeData';
-folderSave = 'C:\STORAGE\OneDrive - University College London\Lab\DATA\DataToPublish\task2P';
-folderPlots = 'C:\STORAGE\OneDrive - University College London\Lab\RESULTS\wheelTask\pupil';
+% change these to your own folder locations
+folderData = 'J:\EyeData'; % location DLC output
+                           % folder structure:
+                           % \EyeData\[subject]\[date]\[#exp]\video
+folderSave = 'C:\STORAGE\OneDrive - University College London\Lab\DATA\DataToPublish\task2P'; % to save output data
+folderPlots = 'C:\STORAGE\OneDrive - University College London\Lab\RESULTS\wheelTask\pupil'; % to save plots
+folderCode = 'C:\dev\workspace\PupilDetection_DLC'; % location of this script
+
+addpath(genpath(folderCode))
 
 %% Parameters
-params.minCertainty = 0.6;
-params.lidMinStd = 7;
-params.minDistLidCenter = 0.5; % in number of pupil heights
-params.surroundingBlinks = 5; % in frames
-params.interpMethod = 'linear';
+params.minCertainty = 0.6; % if DLC certainty above this threshold, marker is assumed to be present in video frame
+params.lidMinStd = 7; % defines minimum distance between top and bottom eye lid
+                      % if distance smaller the frame is counted as blink
+params.minDistLidCenter = 0.5; % (in number of pupil heights)
+                               % minimum distance of top or bottom eye lid to centre of pupil
+                               % if smaller -> blink
+params.surroundingBlinks = 5; % number of frames before and after detected blink that will also counted as blink
 params.maxDistPupilLid = 10; % in pixels
-params.smoothSpan = 5; % in frames
+                             % if distance between eye lid and pupil edge
+                             % is smaller than this, don't trust detected
+                             % position of pupil edge (re-estimate)
+params.interpMethod = 'linear'; % interpolation method when relation pupil height to pupil width
+params.smoothSpan = 5; % in frames; to smooth traces of detected positions
 
 %% Database
 db_wheelTask
@@ -18,7 +38,8 @@ db_wheelTask
 for k = 1:length(db)
     for exp = 1:length(db(k).exp)
         fprintf('%s %s exp %d\n', db(k).subject, db(k).date, db(k).exp(exp))
-        %% Import data, plot basic relationships
+        
+        % Import data
         folder = fullfile(folderData, db(k).subject, db(k).date, num2str(db(k).exp(exp)));
         file = dir(fullfile(folder, '*.csv'));
         output = readmatrix(fullfile(folder, file.name));
@@ -30,26 +51,34 @@ for k = 1:length(db)
         lidTop = output(:,14:16);
         lidBottom = output(:,17:19);
         
-        % relation between horizontal pupil position, and width and height of pupil
+        % get dimensions and center of pupil
         width = pupilRight(:,1) - pupilLeft(:,1);
         height = pupilBottom(:,2) - pupilTop(:,2);
         centerX = pupilLeft(:,1) + 0.5 .* width;
-        valid = all(output(:,4:3:end) > params.minCertainty, 2);
         
+        % get mapping between pupil height and width depending on pupil
+        % position; will be used to estimate height when top or bottom 
+        % pupil edges are not visible in video.
+        % only use frames where all positions are certain
+        valid = all(output(:,4:3:end) > params.minCertainty, 2);
         [F, F0] = dlc.estimateHeightFromWidthPos(width(valid), height(valid), ...
             centerX(valid), params);
         
+        % estimate pupil position and height if they are uncertain
         [centerY_adj, height_adj] = dlc.adjustCenterHeight(output, F, params);
         
+        % detect blinks
         [blinks, blStarts, blStops] = dlc.detectBlinks(output, params, ...
             centerY_adj, height_adj, true);
         
+        % smooth traces
         centerX = medfilt1(centerX, params.smoothSpan);
         centerY_adj = medfilt1(centerY_adj, params.smoothSpan);
         center = [centerX, centerY_adj];
         center(blinks,:) = NaN;
         height_adj = medfilt1(height_adj, params.smoothSpan);
         diameter = height_adj;
+        % set diameter to NaN if blink
         diameter(blinks) = NaN;
         
         % save data
@@ -60,7 +89,7 @@ for k = 1:length(db)
         writeNPY(center, fullfile(fs, 'eye.xyPos.npy'));
         writeNPY(diameter, fullfile(fs, 'eye.diameter.npy'));
         
-        %% Plot data
+        % Plot data
         fs = fullfile(folderPlots, db(k).subject, db(k).date, num2str(exp));
         if ~isfolder(fs)
             mkdir(fs)
