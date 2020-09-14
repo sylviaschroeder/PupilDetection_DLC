@@ -1,0 +1,98 @@
+    # Project definitions (do not edit)
+Task: eyeDb_behavioural_analysis
+scorer: AT
+date: Sep1
+multianimalproject:
+
+    # Project path (change when moving around)
+project_path: D:\eyeDb_behavioural_analysis-AT-2020-09-01
+
+    # Annotation data set configuration (and individual video cropping parameters)
+video_sets:
+  D:\eyeDb_behavioural_analysis-AT-2020-09-01\videos\2015-12-20_1_M151203_FR068_eye.mj2:
+    crop: 0, 640, 0, 480
+  D:\eyeDb_behavioural_analysis-AT-2020-09-01\videos\2015-12-20_2_M151203_FR068_eye.mj2:
+    crop: 0, 640, 0, 480
+  D:\eyeDb_behavioural_analysis-AT-2020-09-01\videos\2016-09-13_2_M160818_FR101_eye.mj2:
+    crop: 0, 640, 0, 480
+  D:\eyeDb_behavioural_analysis-AT-2020-09-01\videos\2016-09-13_3_M160818_FR101_eye.mj2:
+    crop: 0, 640, 0, 480
+  D:\eyeDb_behavioural_analysis-AT-2020-09-01\videos\2018-03-22_4_FR128_eye.mj2:
+    crop: 0, 640, 0, 480
+  D:\eyeDb_behavioural_analysis-AT-2020-09-01\videos\2019-05-21_3_FR140_eye.mj2:
+    crop: 0, 573, 0, 432
+  D:\eyeDb_behavioural_analysis-AT-2020-09-01\videos\2019-05-21_4_FR140_eye.mj2:
+    crop: 0, 573, 0, 432
+  D:\eyeDb_behavioural_analysis-AT-2020-09-01\videos\2019-05-21_5_FR140_eye.mj2:
+    crop: 0, 573, 0, 432
+  D:\eyeDb_behavioural_analysis-AT-2020-09-01\videos\2019-05-21_6_FR140_eye.mj2:
+    crop: 0, 573, 0, 432
+  D:\eyeDb_behavioural_analysis-AT-2020-09-01\videos\2015-12-18_2_M151203_FR068_eye.mj2:
+    crop: 0, 640, 0, 480
+bodyparts:
+- pupil 0
+- pupil 45
+- pupil 90
+- pupil 135
+- pupil 180
+- pupil 225
+- pupil 270
+- pupil 315
+- eyelid top
+- eyelid bot
+start: 0
+stop: 1
+numframes2pick: 20
+
+    # Plotting configuration
+skeleton:
+- - pupil 0
+  - pupil 45
+- - pupil 45
+  - pupil 90
+- - pupil 90
+  - pupil 135
+- - pupil 135
+  - pupil 180
+- - pupil 180
+  - pupil 225
+- - pupil 225
+  - pupil 270
+- - pupil 270
+  - pupil 315
+- - pupil 315
+  - pupil 0
+- - pupil 0
+  - pupil 180
+- - pupil 90
+  - pupil 270
+skeleton_color: white
+pcutoff: 0.6
+dotsize: 2
+alphavalue: 0.7
+colormap: jet
+
+    # Training,Evaluation and Analysis configuration
+TrainingFraction:
+- 0.95
+iteration: 1
+default_net_type: resnet_50
+default_augmenter: default
+snapshotindex: -1
+batch_size: 8
+
+    # Cropping Parameters (for analysis and outlier frame detection)
+cropping: false
+croppedtraining:
+    #if cropping is true for analysis, then set the values here:
+x1: 0
+x2: 640
+y1: 277
+y2: 624
+
+    # Refinement configuration (parameters from annotation dataset configuration also relevant in this stage)
+corner2move2:
+- 50
+- 50
+move2corner: true
+resnet:
