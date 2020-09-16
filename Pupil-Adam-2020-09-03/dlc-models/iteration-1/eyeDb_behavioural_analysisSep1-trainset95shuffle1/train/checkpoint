@@ -1,6 +1,0 @@
-model_checkpoint_path: "D:\\eyeDb_behavioural_analysis-AT-2020-09-01\\dlc-models\\iteration-1\\eyeDb_behavioural_analysisSep1-trainset95shuffle1\\train\\snapshot-500000"
-all_model_checkpoint_paths: "D:\\eyeDb_behavioural_analysis-AT-2020-09-01\\dlc-models\\iteration-1\\eyeDb_behavioural_analysisSep1-trainset95shuffle1\\train\\snapshot-300000"
-all_model_checkpoint_paths: "D:\\eyeDb_behavioural_analysis-AT-2020-09-01\\dlc-models\\iteration-1\\eyeDb_behavioural_analysisSep1-trainset95shuffle1\\train\\snapshot-350000"
-all_model_checkpoint_paths: "D:\\eyeDb_behavioural_analysis-AT-2020-09-01\\dlc-models\\iteration-1\\eyeDb_behavioural_analysisSep1-trainset95shuffle1\\train\\snapshot-400000"
-all_model_checkpoint_paths: "D:\\eyeDb_behavioural_analysis-AT-2020-09-01\\dlc-models\\iteration-1\\eyeDb_behavioural_analysisSep1-trainset95shuffle1\\train\\snapshot-450000"
-all_model_checkpoint_paths: "D:\\eyeDb_behavioural_analysis-AT-2020-09-01\\dlc-models\\iteration-1\\eyeDb_behavioural_analysisSep1-trainset95shuffle1\\train\\snapshot-500000"
