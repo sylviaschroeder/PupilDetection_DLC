@@ -1,0 +1,6 @@
+model_checkpoint_path: "J:\\EyeData\\PupilDetector-cortex_lab-2021-04-28\\dlc-models\\iteration-0\\PupilDetectorApr28-trainset95shuffle1\\train\\snapshot-1030000"
+all_model_checkpoint_paths: "J:\\EyeData\\PupilDetector-cortex_lab-2021-04-28\\dlc-models\\iteration-0\\PupilDetectorApr28-trainset95shuffle1\\train\\snapshot-850000"
+all_model_checkpoint_paths: "J:\\EyeData\\PupilDetector-cortex_lab-2021-04-28\\dlc-models\\iteration-0\\PupilDetectorApr28-trainset95shuffle1\\train\\snapshot-900000"
+all_model_checkpoint_paths: "J:\\EyeData\\PupilDetector-cortex_lab-2021-04-28\\dlc-models\\iteration-0\\PupilDetectorApr28-trainset95shuffle1\\train\\snapshot-950000"
+all_model_checkpoint_paths: "J:\\EyeData\\PupilDetector-cortex_lab-2021-04-28\\dlc-models\\iteration-0\\PupilDetectorApr28-trainset95shuffle1\\train\\snapshot-1000000"
+all_model_checkpoint_paths: "J:\\EyeData\\PupilDetector-cortex_lab-2021-04-28\\dlc-models\\iteration-0\\PupilDetectorApr28-trainset95shuffle1\\train\\snapshot-1030000"
