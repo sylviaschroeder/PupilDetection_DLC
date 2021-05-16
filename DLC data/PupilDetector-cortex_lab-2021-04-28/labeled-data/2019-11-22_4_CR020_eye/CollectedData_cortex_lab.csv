@@ -1,0 +1,4 @@
+scorer,cortex_lab,cortex_lab,cortex_lab,cortex_lab,cortex_lab,cortex_lab,cortex_lab,cortex_lab,cortex_lab,cortex_lab,cortex_lab,cortex_lab,cortex_lab,cortex_lab,cortex_lab,cortex_lab
+bodyparts,pupil_top,pupil_top,pupil_bot,pupil_bot,pupil_right,pupil_right,pupil_left,pupil_left,lid_top,lid_top,lid_bot,lid_bot,corner_right,corner_right,corner_left,corner_left
+coords,x,y,x,y,x,y,x,y,x,y,x,y,x,y,x,y
+labeled-data\2019-11-22_4_CR020_eye\img00000.png,163.98861694335938,144.266845703125,166.760986328125,159.2309112548828,172.95475132529288,151.15262742541472,156.48509152670306,156.09352536499165,171.6934051513672,121.44971466064453,175.45619201660156,204.55859375,243.8206787109375,154.15081787109375,92.89408111572266,163.4644012451172
