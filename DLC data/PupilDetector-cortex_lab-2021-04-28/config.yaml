@@ -161,7 +161,6 @@ video_sets:
     crop: 0, 640, 0, 480
   \2019-11-27_4_CR019_eye.mj2:
     crop: 0, 640, 0, 480
-
 bodyparts:
 - pupil_top
 - pupil_bot

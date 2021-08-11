@@ -1,26 +1,11 @@
 function [centerY, height] = adjustCenterHeight(output, F, params)
-%ADJUSTCENTERHEIGHT   Estimates pupil center position and height if
-%uncertain
-%   [CENTERY, HEIGHT] = ADJUSTCENTERHEIGHT(OUTPUT, F, PARAMS)
-%   output      output table from DLC
-%   F           smoothed surface of pupil height given width and position;
-%               output of dlc.estimateHeightFromWidthPos
-%   params      struct;
-%               .minCertainty: if DLC certainty above this threshold, 
-%                   marker is assumed to be present in video frame
-%               .maxDistPupilLid: in pixels; if distance between eye lid 
-%                   and pupil edge is smaller than this, don't trust 
-%                   detected position of pupil edge (re-estimate)
-%
-%   centerX     [t x 1], estimated horizontal position of pupil centre
-%   height      [t x 1], estimated pupil height
 
-pupilTop = output(:,2:4); % [x y likelihood]
-pupilBottom = output(:,5:7);
-pupilLeft = output(:,8:10);
-pupilRight = output(:,11:13);
-lidTop = output(:,14:16);
-lidBottom = output(:,17:19);
+pupilTop = output(:,1:3); % [x y likelihood]
+pupilBottom = output(:,4:6);
+pupilLeft = output(:,7:9);
+pupilRight = output(:,10:12);
+lidTop = output(:,13:15);
+lidBottom = output(:,16:18);
 
 width = pupilRight(:,1) - pupilLeft(:,1);
 height = pupilBottom(:,2) - pupilTop(:,2);

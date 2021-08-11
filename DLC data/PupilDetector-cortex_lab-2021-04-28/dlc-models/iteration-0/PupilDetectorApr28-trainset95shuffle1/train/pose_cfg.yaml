@@ -67,7 +67,7 @@ pos_dist_thresh: 17
 project_path: J:\EyeData\PupilDetector-cortex_lab-2021-04-28
 rotation: 25
 rotratio: 0.4
-save_iters: 50000
+save_iters: 100000
 scale_jitter_lo: 0.5
 scale_jitter_up: 1.25
 sharpen: false
