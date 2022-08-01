@@ -3,9 +3,10 @@ Task: PupilDetector
 scorer: cortex_lab
 date: Apr28
 multianimalproject: false
+identity:
 
     # Project path (change when moving around)
-project_path: J:\EyeData\PupilDetector-cortex_lab-2021-04-28
+project_path: C:\Users\Federico\Documents\GitHub\PupilDetection_DLC\DLC data\PupilDetector-cortex_lab-2021-04-28
 
     # Annotation data set configuration (and individual video cropping parameters)
 video_sets:
@@ -161,6 +162,26 @@ video_sets:
     crop: 0, 640, 0, 480
   \2019-11-27_4_CR019_eye.mj2:
     crop: 0, 640, 0, 480
+  \2016-12-04_1_SS072_eye_clip.mj2:
+    crop: 0, 277, 0, 194
+  \2017-01-05_2_SS074_eye_clip.mj2:
+    crop: 0, 216, 0, 171
+  \2018-05-24_2_SS093_eye_clip.mj2:
+    crop: 0, 397, 0, 302
+  \2018-05-25_2_SS093_eye_clip.mj2:
+    crop: 0, 426, 0, 293
+  \2018-05-26_2_SS093_eye_clip.mj2:
+    crop: 0, 343, 0, 248
+  \2018-04-17_3_SS092_eye_clip.mj2:
+    crop: 0, 356, 0, 259
+  \2018-04-18_2_SS092_eye_clip.mj2:
+    crop: 0, 350, 0, 284
+  \2018-04-20_2_SS092_eye_clip.mj2:
+    crop: 0, 324, 0, 272
+  \2018-01-31_2_SS088_eye_clip.mj2:
+    crop: 0, 384, 0, 280
+  \2018-02-02_2_SS088_eye_clip.mj2:
+    crop: 0, 350, 0, 268
 bodyparts:
 - pupil_top
 - pupil_bot
@@ -190,7 +211,7 @@ colormap: jet
     # Training,Evaluation and Analysis configuration
 TrainingFraction:
 - 0.95
-iteration: 0
+iteration: 3
 default_net_type: resnet_50
 default_augmenter: default
 snapshotindex: -1
@@ -198,7 +219,6 @@ batch_size: 8
 
     # Cropping Parameters (for analysis and outlier frame detection)
 cropping: false
-croppedtraining: false
     #if cropping is true for analysis, then set the values here:
 x1: 0
 x2: 640
@@ -210,3 +230,4 @@ corner2move2:
 - 50
 - 50
 move2corner: true
+croppedtraining: false
